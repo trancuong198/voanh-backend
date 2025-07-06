@@ -9,12 +9,12 @@ DATABASE_ID = os.environ.get("NOTION_DATABASE_ID")
 
 @app.route('/')
 def home():
-    return "🪷 Vô Ảnh Backend đã hoạt động!"
+    return "⚙ Vô Ảnh Backend đã hoạt động!"
 
 @app.route('/log')
 def log_to_notion():
     text = request.args.get("text", "No text provided")
-
+    
     url = "https://api.notion.com/v1/pages"
     headers = {
         "Authorization": f"Bearer {NOTION_TOKEN}",
