@@ -4,8 +4,10 @@ import requests
 
 app = Flask(__name__)
 
-NOTION_TOKEN = os.getenv("NOTION_TOKEN")
-DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
+"Authorization": f"Bearer {NOTION_TOKEN}",
+...
+"parent": { "database_id": DATABASE_ID },
+
 
 @app.route('/')
 def home():
