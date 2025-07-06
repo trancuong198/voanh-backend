@@ -2,10 +2,11 @@ services:
   - type: web
     name: voanh-backend
     env: python
+    plan: free
     buildCommand: ""
     startCommand: "python main.py"
     envVars:
       - key: NOTION_TOKEN
-        fromEnvVar: NOTION_TOKEN
+        sync: false
       - key: NOTION_DATABASE_ID
-        fromEnvVar: NOTION_DATABASE_ID
+        sync: false
