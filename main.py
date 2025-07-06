@@ -4,14 +4,12 @@ import requests
 
 app = Flask(__name__)
 
-"Authorization": f"Bearer {NOTION_TOKEN}",
-...
-"parent": { "database_id": DATABASE_ID },
-
+NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
+DATABASE_ID = os.environ.get("NOTION_DATABASE_ID")
 
 @app.route('/')
 def home():
-    return "✅ Vô Ảnh Backend đã hoạt động!"
+    return "⚡ Vô Ảnh Backend đã hoạt động!"
 
 @app.route('/log')
 def log_to_notion():
