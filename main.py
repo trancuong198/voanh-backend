@@ -35,3 +35,6 @@ def log_to_notion():
 
     response = requests.post(url, json=data, headers=headers)
     return f"✅ Sent to Notion: {response.status_code}"
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
