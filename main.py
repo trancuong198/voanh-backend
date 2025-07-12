@@ -30,10 +30,6 @@ def log_to_notion():
                     "text": { "content": "Log Entry" }
                 }]
             },
-            "log": {
-                "rich_text": [{
-                    "text": { "content": text }
-                }]
             }
         }
     }
