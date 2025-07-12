@@ -52,3 +52,19 @@ def log_to_notion():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/notion-webhook', methods=['POST'])
+def notion_webhook():
+    data = request.json
+    
+    # 👇 Nếu là yêu cầu xác minh (verify)
+    if 'verification_token' in data:
+        print("👉 Token xác minh nhận được:", data['verification_token'])
+        return jsonify({'verification_token': data['verification_token']}), 200
+
+    # 👇 Nếu là sự kiện bình thường (cập nhật nội dung...)
+    print("🔄 Dữ liệu sự kiện nhận được:", data)
+    return '', 200
