@@ -64,7 +64,6 @@ def notion_webhook():
     if 'verification_token' in data:
         print("👉 Token xác minh nhận được:", data['verification_token'])
         return jsonify({'verification_token': data['verification_token']}), 200
-
 # ✅ Nếu là sự kiện bình thường (cập nhật nội dung...)
 import json
 print("🌀 Dữ liệu sự kiện nhận được:\n", json.dumps(data, indent=2))
